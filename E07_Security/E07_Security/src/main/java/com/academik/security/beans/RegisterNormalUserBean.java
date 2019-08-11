@@ -40,21 +40,17 @@ public class RegisterNormalUserBean {
         account.setFirstName(tempFirstName);
         account.setLastName(tempLastName);
         
-        Role normal = daoRole.getNormalRole();
-        
+        Role normal = daoRole.getNormalRole();     
         AccountRole ar = new AccountRole();
         //Linea ROJA
         ar.setAccount(account);
         //Linea AZUL
-        ar.setRole(normal);
-        
+        ar.setRole(normal);     
         //Linea NEGRA
         List<AccountRole> accountRoles = new ArrayList<>();
         accountRoles.add(ar);
         account.setAccountRoles(accountRoles);
-
-        
-        
+     
         dao.createNormalAccount(account);
         return "login";
     }
