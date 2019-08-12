@@ -2,39 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <ui:composition template="/templates/main.xhtml">
         
         <ui:define name="content">
-            <h1>Welcome Administrator</h1><br/>
+            <h1>Welcome User</h1><br/>
             <h:form>
-                <h:dataTable class="table" value="#{listAdminBean.adminAccounts}" var="aa">
+                <h:dataTable class="table" value="#{listAdminBean.userAccounts}" var="ua">
                     <h:column>
                         <f:facet name="header">First Name</f:facet>
-                        #{aa.firstName}    
+                        #{ua.firstName}    
                     </h:column>
                     <h:column>
                         <f:facet name="header">Last Name</f:facet>
-                        #{aa.lastName}    
+                        #{ua.lastName}    
                     </h:column>                    
                     <h:column>
                         <f:facet name="header">Email</f:facet>
-                        #{aa.email}
+                        #{ua.email}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Nickname</f:facet>
-                        #{aa.nickname}    
+                        #{ua.nickname}    
                     </h:column>                        
                 </h:dataTable>
-                <h:commandLink value="Registrar nuevo Administrador" class="btn btn-success" action="/admin/registerAdmin"/>
+                <h:commandLink value="Registrar Nuevo Usuario" class="btn btn-success" action="/register"/>                   
                 <br></br> <br></br>
                 <h:commandButton value="Cerrar sesion" action="#{customSecurityBean.logout}"/>
             </h:form>    
                         
         </ui:define>
 
-    </ui:composition>    
+    </ui:composition>   
+    
 </html>
-

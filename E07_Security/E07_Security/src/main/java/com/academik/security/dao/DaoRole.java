@@ -22,5 +22,4 @@ public class DaoRole {
     public Role getAdminRole() {
         return em.find(Role.class, 1L);
     }
-    
 }
