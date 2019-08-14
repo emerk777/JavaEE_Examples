@@ -11,6 +11,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -25,11 +27,16 @@ public class RegisterNormalUserBean {
         
     @Inject
     DaoRole daoRole;
-
+    
+    @Pattern(regexp = "\\p{Alnum}{5,}\\@[a-zA-Z0-9.-]{5,}+$", message="El Correo deber de poseer el siguiente formato usuario@dominio.com con un usuario y dominio no menor a 5 caracteres")
     private String tempEmail;
+    @Pattern(regexp = "\\p{Alpha}{5,}", message="El Nickname deber de poseer al menos 5 caracteres alfabeticos")
     private String tempNickname;
+    @Pattern (regexp="\\d{1,4}", message="La contrasena debe de ser entre uno y cuatro numeros")
     private String tempPassword;
+    @Size(min=2, max=40, message="El primer nombre necesita al menos 2 caracteres")
     private String tempFirstName;
+    @Size(min=2, max=40, message="El apellido necesita al menos 2 caracteres")
     private String tempLastName;
 
     public String create() {

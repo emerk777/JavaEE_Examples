@@ -33,6 +33,7 @@
         <web-resource-collection>
             <web-resource-name>administrator</web-resource-name>
             <url-pattern>/faces/admin/*</url-pattern>
+            <url-pattern>/faces/normal/*</url-pattern>            
             <http-method>POST</http-method>
             <http-method>GET</http-method>
             <http-method>PUT</http-method>
